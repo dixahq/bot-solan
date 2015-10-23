@@ -2,13 +2,13 @@
 #   "Makes your Hubot even more Clever™"
 #
 # Dependencies:
-#   "cleverbot-node": "0.1.1"
+#   "cleverbot-node": "0.2.1"
 #
 # Configuration:
 #   None
 #
 # Commands:
-#   hubot <input> - Cleverbot
+#   hubot c <input>
 #
 # Author:
 #   ajacksified
@@ -20,4 +20,4 @@ module.exports = (robot) ->
 
   robot.respond /(.*)/i, (msg) ->
     data = msg.match[1].trim()
-    c.write(data, (c) => msg.send(c.message))
+    cleverbot.prepare(( -> c.write(data, (c) => msg.send(c.message))))
